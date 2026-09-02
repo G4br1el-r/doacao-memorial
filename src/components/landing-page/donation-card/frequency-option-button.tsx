@@ -26,7 +26,7 @@ export function FrequencyOptionButton({
       disabled={blocked}
       onClick={onSelect}
       className={cn(
-        "flex flex-1 items-center gap-3 rounded-lg border px-3.5 py-3 text-left transition-colors disabled:cursor-not-allowed disabled:opacity-40",
+        "flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg border px-3 py-3 text-left transition-colors disabled:cursor-not-allowed disabled:opacity-40 sm:gap-3 sm:px-3.5",
         active
           ? "border-[#d9c9a3]/80 bg-[#d9c9a3]/10"
           : "border-[#d9c9a3]/25 bg-black/40 hover:border-[#d9c9a3]/50",
@@ -39,7 +39,7 @@ export function FrequencyOptionButton({
           active ? "text-[#d9c9a3]" : "text-[#d9c9a3]/70",
         )}
       />
-      <span>
+      <span className="min-w-0">
         <span className="block text-sm text-white">{option.label}</span>
         <span className="block text-[10px] leading-tight text-white/60">
           {blocked ? RECURRING_BLOCKED_NOTE : option.note}

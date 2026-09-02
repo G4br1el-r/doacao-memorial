@@ -14,7 +14,7 @@ export function DonationExperience({ children }: DonationExperienceProps) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <main className="relative min-h-screen overflow-hidden bg-black">
+      <main className="min-h-dvh-fallback relative overflow-x-clip bg-black xl:overflow-hidden">
         {children}
         <DonationCard form={form} />
       </main>

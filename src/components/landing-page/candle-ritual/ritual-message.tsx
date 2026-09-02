@@ -21,7 +21,7 @@ export function RitualMessage({
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="absolute inset-x-0 bottom-8 z-30 flex cursor-default flex-col items-center px-8 text-center"
+          className="pointer-events-none absolute inset-x-0 bottom-[calc(2rem+env(safe-area-inset-bottom))] z-30 flex cursor-default flex-col items-center px-6 text-center sm:px-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 5.4, ease: SMOOTH }}
@@ -37,7 +37,7 @@ export function RitualMessage({
           <motion.button
             type="button"
             onClick={onClose}
-            className="mt-6 rounded-lg border border-[#d9c9a3]/40 px-8 py-2.5 text-[12px] tracking-[0.2em] text-[#e8dcc0] transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
+            className="pointer-events-auto relative z-50 mt-6 min-h-11 rounded-lg border border-[#d9c9a3]/40 bg-black/40 px-8 py-2.5 text-[12px] tracking-[0.2em] text-[#e8dcc0] backdrop-blur-sm transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 6.4 }}

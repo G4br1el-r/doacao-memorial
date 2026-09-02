@@ -29,7 +29,7 @@ export function ThankYou({
 
   return (
     <motion.div
-      className="flex min-h-0 flex-col items-center overflow-y-auto rounded-2xl border border-[#d9c9a3]/20 bg-black/55 px-8 py-12 text-center shadow-xl backdrop-blur-xl [scrollbar-color:rgba(217,201,163,0.35)_transparent] [scrollbar-width:thin]"
+      className="flex min-h-0 flex-col items-center overflow-visible rounded-2xl border border-[#d9c9a3]/20 bg-black/55 px-6 py-12 text-center shadow-xl backdrop-blur-xl sm:px-8 xl:overflow-y-auto [scrollbar-color:rgba(217,201,163,0.35)_transparent] [scrollbar-width:thin]"
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.1, ease: SMOOTH }}

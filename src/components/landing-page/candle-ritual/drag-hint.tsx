@@ -12,7 +12,7 @@ export function DragHint({ visible, byTouch }: DragHintProps) {
     <AnimatePresence>
       {visible && (
         <motion.p
-          className="absolute top-10 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap text-[12px] tracking-[0.2em] text-[#e8dcc0]"
+          className="absolute top-[calc(2.5rem+env(safe-area-inset-top))] left-1/2 z-30 max-w-[calc(100%-2rem)] -translate-x-1/2 text-center text-[12px] tracking-[0.2em] text-[#e8dcc0] sm:max-w-none sm:whitespace-nowrap"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.4, 0.8, 0.4] }}
           exit={{ opacity: 0 }}

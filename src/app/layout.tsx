@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, Oswald } from "next/font/google";
 import "./globals.css";
 
@@ -26,6 +26,15 @@ export const metadata: Metadata = {
   title: "De algo maior",
   description:
     "Sua doação mantém viva esta missão de fé, evangelização e caridade.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-visual",
+  colorScheme: "dark",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -32,7 +32,7 @@ export function DraggableCandle({
 
   return (
     <motion.div
-      className="absolute left-1/2 z-20 h-56 w-32 touch-none sm:h-64 sm:w-36"
+      className="absolute left-1/2 z-40 h-56 w-32 touch-none sm:h-64 sm:w-36"
       style={{
         x,
         y,

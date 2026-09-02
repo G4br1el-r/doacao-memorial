@@ -20,7 +20,7 @@ export function OptionButton({
       type="button"
       onClick={onClick}
       className={cn(
-        "rounded-lg border text-[13px] transition-colors",
+        "min-h-11 rounded-lg border text-[13px] transition-colors",
         active
           ? "border-[#d9c9a3] bg-[#d9c9a3] font-semibold text-black"
           : "border-[#d9c9a3]/25 bg-white/8 text-white/80 hover:border-[#d9c9a3]/60",

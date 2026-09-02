@@ -4,7 +4,7 @@ import { LabeledField } from "@/components/ui/labeled-field";
 
 export function DueDateField() {
   return (
-    <div className="flex w-1/2">
+    <div className="flex sm:w-1/2">
       <LabeledField icon={CalendarDays} label="Data de vencimento" required>
         {(id) => (
           <input

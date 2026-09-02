@@ -13,7 +13,7 @@ export function FormHeader() {
       </p>
       <a
         href="/benfeitor"
-        className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-[#d9c9a3]/40 bg-white/5 px-4 py-2 text-[12px] tracking-wide text-[#e8dcc0] transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
+        className="mt-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#d9c9a3]/40 bg-white/5 px-4 py-2 text-[12px] tracking-wide text-[#e8dcc0] transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
       >
         <UserCheck className="h-4 w-4" />
         Já sou benfeitor

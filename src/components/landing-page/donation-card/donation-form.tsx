@@ -22,7 +22,8 @@ interface DonationFormProps {
 export function DonationForm({ form }: DonationFormProps) {
   return (
     <motion.div
-      className="flex min-h-0 flex-col overflow-y-auto overscroll-contain rounded-2xl border border-[#d9c9a3]/20 bg-black/55 p-5 shadow-xl backdrop-blur-xl [scrollbar-color:rgba(217,201,163,0.35)_transparent] [scrollbar-width:thin]"
+      data-field-flow
+      className="flex min-h-0 flex-col overflow-visible rounded-2xl border border-[#d9c9a3]/20 bg-black/55 p-5 shadow-xl backdrop-blur-xl xl:overflow-y-auto xl:overscroll-contain [scrollbar-color:rgba(217,201,163,0.35)_transparent] [scrollbar-width:thin]"
       initial="hidden"
       animate="show"
       exit={{ opacity: 0, y: -16, transition: { duration: 0.5, ease: SMOOTH } }}

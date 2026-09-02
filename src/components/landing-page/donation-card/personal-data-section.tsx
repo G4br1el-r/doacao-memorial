@@ -32,6 +32,7 @@ export function PersonalDataSection({
           icon={User}
           placeholder="Nome completo"
           autoComplete="name"
+          autoCapitalize="words"
           value={name}
           onChange={onNameChange}
           required
@@ -45,10 +46,13 @@ export function PersonalDataSection({
           type="email"
           inputMode="email"
           autoComplete="email"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck={false}
         />
       </div>
 
-      <div className="mt-3 flex gap-3">
+      <div className="mt-3 flex flex-col gap-3 sm:flex-row">
         <MaskedField
           icon={Phone}
           placeholder="Celular com DDD"
@@ -64,6 +68,7 @@ export function PersonalDataSection({
           icon={IdCard}
           placeholder="CPF/CNPJ"
           inputMode="numeric"
+          autoComplete="off"
           mask={DOCUMENT_MASK}
           value={document}
           onAccept={onDocumentChange}
@@ -71,7 +76,7 @@ export function PersonalDataSection({
         />
       </div>
 
-      <div className="mt-3 flex w-1/2 gap-3 pr-1.5">
+      <div className="mt-3 flex gap-3 sm:w-1/2 sm:pr-1.5">
         <BirthDateField />
       </div>
     </>

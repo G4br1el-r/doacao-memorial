@@ -1,6 +1,7 @@
 "use client";
 
 import { CONTROL, FRAME } from "./constants";
+import { onEnterGoToNextField } from "./focus-next";
 
 interface FieldProps {
   icon: React.ElementType;
@@ -9,9 +10,13 @@ interface FieldProps {
   value?: string;
   onChange?: (value: string) => void;
   required?: boolean;
-  inputMode?: "numeric" | "tel" | "email" | "text";
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
   maxLength?: number;
   autoComplete?: string;
+  autoCapitalize?: string;
+  autoCorrect?: string;
+  spellCheck?: boolean;
+  enterKeyHint?: React.HTMLAttributes<HTMLInputElement>["enterKeyHint"];
 }
 
 export function Field({
@@ -21,9 +26,13 @@ export function Field({
   value,
   onChange,
   required,
-  inputMode,
+  inputMode = "text",
   maxLength,
   autoComplete,
+  autoCapitalize,
+  autoCorrect,
+  spellCheck,
+  enterKeyHint = "next",
 }: FieldProps) {
   return (
     <label className={FRAME}>
@@ -33,6 +42,11 @@ export function Field({
         inputMode={inputMode}
         maxLength={maxLength}
         autoComplete={autoComplete}
+        autoCapitalize={autoCapitalize}
+        autoCorrect={autoCorrect}
+        spellCheck={spellCheck}
+        enterKeyHint={enterKeyHint}
+        onKeyDown={onEnterGoToNextField}
         value={value}
         onChange={onChange && ((e) => onChange(e.target.value))}
         placeholder={required ? `${placeholder} *` : placeholder}

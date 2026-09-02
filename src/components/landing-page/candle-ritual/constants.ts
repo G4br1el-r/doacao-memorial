@@ -3,6 +3,8 @@ import type { Inscription } from "./types";
 export const DAYS_LIT = 7;
 
 export const LIGHT_RADIUS = 460;
+export const LIGHT_RADIUS_MOBILE = 210;
+export const MOBILE_BREAKPOINT = 1280;
 
 export const DARKENING_MS = 700;
 export const LIGHTING_MS = 260;

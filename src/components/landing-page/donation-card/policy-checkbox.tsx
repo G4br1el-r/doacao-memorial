@@ -12,7 +12,7 @@ interface PolicyCheckboxProps {
 export function PolicyCheckbox({ checked, onChange }: PolicyCheckboxProps) {
   return (
     <motion.label
-      className="mt-4 flex cursor-pointer items-center gap-3 text-[12px] text-white/75"
+      className="mt-1.5 flex min-h-11 cursor-pointer items-center gap-3 py-2.5 text-[12px] text-white/75"
       variants={CARD_ITEM_VARIANTS}
     >
       <input
@@ -25,7 +25,7 @@ export function PolicyCheckbox({ checked, onChange }: PolicyCheckboxProps) {
         Li e aceito as{" "}
         <a
           href="/politicas-de-privacidade"
-          className="text-[#d9c9a3] underline underline-offset-2 hover:text-[#f0e2c0]"
+          className="inline-block py-1 text-[#d9c9a3] underline underline-offset-2 hover:text-[#f0e2c0]"
         >
           Políticas de Privacidade
         </a>

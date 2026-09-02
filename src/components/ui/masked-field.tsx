@@ -3,6 +3,7 @@
 import { useId } from "react";
 import { IMaskInput } from "react-imask";
 import { CONTROL, FRAME } from "./constants";
+import { onEnterGoToNextField } from "./focus-next";
 
 interface MaskedFieldProps {
   icon: React.ElementType;
@@ -12,8 +13,10 @@ interface MaskedFieldProps {
   value: string;
   onAccept: (value: string) => void;
   required?: boolean;
-  inputMode?: "numeric" | "tel" | "email" | "text";
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
   autoComplete?: string;
+  trailing?: React.ReactNode;
+  enterKeyHint?: React.HTMLAttributes<HTMLInputElement>["enterKeyHint"];
 }
 
 export function MaskedField({
@@ -24,8 +27,10 @@ export function MaskedField({
   value,
   onAccept,
   required,
-  inputMode,
+  inputMode = "text",
   autoComplete,
+  trailing,
+  enterKeyHint = "next",
 }: MaskedFieldProps) {
   const id = useId();
   return (
@@ -39,9 +44,14 @@ export function MaskedField({
         type={type}
         inputMode={inputMode}
         autoComplete={autoComplete}
+        autoCorrect="off"
+        spellCheck={false}
+        enterKeyHint={enterKeyHint}
+        onKeyDown={onEnterGoToNextField}
         placeholder={required ? `${placeholder} *` : placeholder}
         className={CONTROL}
       />
+      {trailing}
     </label>
   );
 }
