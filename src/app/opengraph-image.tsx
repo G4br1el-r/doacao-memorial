@@ -56,14 +56,14 @@ export default async function OpengraphImage() {
       <img
         src={priestSrc}
         alt=""
-        width={520}
-        height={609}
+        width={400}
+        height={600}
         style={{
           position: "absolute",
-          right: 40,
+          right: 56,
           bottom: 0,
-          width: 520,
-          height: 609,
+          width: 400,
+          height: 600,
           objectFit: "contain",
         }}
       />

@@ -7,7 +7,7 @@ import { EYEBROW } from "./constants";
 export function HeroEyebrow() {
   return (
     <motion.div
-      className="flex items-center gap-4"
+      className="flex flex-row-reverse items-center gap-4 xl:flex-row"
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.2, ease: SMOOTH }}

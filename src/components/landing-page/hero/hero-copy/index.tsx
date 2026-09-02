@@ -4,7 +4,7 @@ import { HeroTitle } from "./hero-title";
 
 export function HeroCopy() {
   return (
-    <div className="absolute inset-0 flex flex-col justify-start px-2 pt-[9dvh] sm:px-8 xl:justify-center xl:px-16 xl:pt-0">
+    <div className="absolute inset-0 flex flex-col items-end justify-start px-3 pt-[9dvh] text-right sm:px-8 xl:items-start xl:justify-center xl:px-16 xl:pt-0 xl:text-left">
       <HeroEyebrow />
       <HeroTitle />
       <HeroTagline />
