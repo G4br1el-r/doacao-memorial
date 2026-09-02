@@ -5,7 +5,8 @@ export const LEGACY_INLINE_AUTOPLAY_ATTRS = {
 } as const;
 
 export const DEFAULT_SOURCES = [
-  { src: "/background-video.mp4", type: "video/mp4" },
+  { src: "/video/webm/background.webm", type: "video/webm" },
+  { src: "/video/mp4/background.mp4", type: "video/mp4" },
 ];
 
 export const REWIND_MARGIN_SECONDS = 0.3;

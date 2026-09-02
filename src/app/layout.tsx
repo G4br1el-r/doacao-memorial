@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter, Oswald } from "next/font/google";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const display = Oswald({
@@ -23,9 +24,51 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "De algo maior",
-  description:
-    "Sua doação mantém viva esta missão de fé, evangelização e caridade.",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: SITE.title,
+    template: `%s | ${SITE.name}`,
+  },
+  description: SITE.description,
+  applicationName: SITE.name,
+  keywords: [
+    "doação",
+    "Memorial Redentorista",
+    "Pe. Vitor Coelho de Almeida",
+    "missão",
+    "evangelização",
+    "caridade",
+    "fé",
+  ],
+  authors: [{ name: SITE.name }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    siteName: SITE.name,
+    title: SITE.shareTitle,
+    description: SITE.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.shareTitle,
+    description: SITE.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: { telephone: false, address: false, email: false },
 };
 
 export const viewport: Viewport = {

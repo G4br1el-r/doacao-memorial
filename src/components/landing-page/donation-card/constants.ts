@@ -35,5 +35,5 @@ export const DOCUMENT_MASK = [
 export const PHONE_MASK = "(00) 00000-0000";
 export const POSTAL_CODE_MASK = "00000-000";
 
-export const VIACEP_URL = "https://viacep.com.br/ws";
+export const POSTAL_CODE_URL = "/api/cep";
 export const POSTAL_CODE_LENGTH = 8;

@@ -12,7 +12,7 @@ export function HeroBackground() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 2.4, ease: SMOOTH }}
     >
-      <BackgroundVideo poster="/background.png" />
+      <BackgroundVideo poster="/images/webp/background.webp" />
     </motion.div>
   );
 }

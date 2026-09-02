@@ -52,7 +52,7 @@ export function PersonalDataSection({
         />
       </div>
 
-      <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-3 flex flex-col gap-3">
         <MaskedField
           icon={Phone}
           placeholder="Celular com DDD"

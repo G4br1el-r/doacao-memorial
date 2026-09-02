@@ -31,7 +31,7 @@ export function AddressSection({
     <>
       <SectionLabel>ENDEREÇO</SectionLabel>
       <div className="flex">
-        <div className="w-full sm:w-1/3 sm:pr-1.5">
+        <div className="w-1/2 pr-1.5">
           <MaskedField
             icon={MapPin}
             placeholder="CEP"
