@@ -2,7 +2,13 @@
   "name": "doacao-memorial",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=11"
+  },
   "scripts": {
+    "preinstall": "npx --yes only-allow pnpm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -10,9 +16,14 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.38.0",
+    "motion": "^13.1.1",
     "next": "16.3.4",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-imask": "^7.6.1",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.2",

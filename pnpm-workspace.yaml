@@ -1,0 +1,3 @@
+# postinstall do core-js-pure e so um banner de doacao, nao gera build
+allowBuilds:
+  core-js-pure: false
