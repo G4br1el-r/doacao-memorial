@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Oswald } from "next/font/google";
 import "./globals.css";
 
-/* display: so o titulo. condensada de proposito - a largura da Archivo
-   Black fazia o titulo passar por cima da figura do padre */
 const display = Oswald({
   weight: ["500", "600", "700"],
   subsets: ["latin"],
@@ -11,15 +9,13 @@ const display = Oswald({
   display: "swap",
 });
 
-/* corpo: mesma familia neutra do titulo em espirito, sem competir com ele */
-const corpo = Inter({
+const body = Inter({
   subsets: ["latin"],
   variable: "--font-corpo",
   display: "swap",
 });
 
-/* serifada liturgica: card, ritual da vela e agradecimento */
-const serifada = Cormorant_Garamond({
+const serif = Cormorant_Garamond({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
   variable: "--font-serifada",
@@ -36,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${display.variable} ${corpo.variable} ${serifada.variable}`}
+      className={`${display.variable} ${body.variable} ${serif.variable}`}
     >
       <body>{children}</body>
     </html>
