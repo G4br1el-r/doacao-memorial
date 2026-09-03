@@ -1,32 +1,53 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
+import { INSCRIPTIONS } from "./constants";
 
 interface DragHintProps {
   visible: boolean;
   byTouch: boolean;
+  foundCount: number;
 }
 
-export function DragHint({ visible, byTouch }: DragHintProps) {
+export function DragHint({ visible, byTouch, foundCount }: DragHintProps) {
+  const total = INSCRIPTIONS.length;
+  const started = foundCount > 0;
+
   return (
     <AnimatePresence>
       {visible && (
-        <motion.p
-          className="absolute top-[calc(2.5rem+env(safe-area-inset-top))] left-1/2 z-30 max-w-[calc(100%-2rem)] -translate-x-1/2 text-center text-[12px] tracking-[0.2em] text-[#e8dcc0] sm:max-w-none sm:whitespace-nowrap"
+        <motion.div
+          className="absolute top-[calc(2.5rem+env(safe-area-inset-top))] left-1/2 z-30 flex max-w-[calc(100%-2rem)] -translate-x-1/2 flex-col items-center gap-2 text-center sm:max-w-none"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0.4, 0.8, 0.4] }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{
-            duration: 4.5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
-          {byTouch
-            ? "ARRASTE A VELA PARA ILUMINAR"
-            : "MOVA O MOUSE PARA ILUMINAR"}
-        </motion.p>
+          <motion.p
+            className="text-[12px] tracking-[0.2em] text-[#e8dcc0] sm:whitespace-nowrap"
+            animate={{ opacity: [0.45, 0.85, 0.45] }}
+            transition={{
+              duration: 4.5,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
+            {byTouch
+              ? "ARRASTE A VELA PARA ILUMINAR"
+              : "MOVA O MOUSE PARA ILUMINAR"}
+          </motion.p>
+
+          {/* contador de palavras: so aparece depois da primeira descoberta,
+              pra nao entregar o jogo antes de a pessoa entender o ritual */}
+          <motion.span
+            className="text-[11px] tracking-[0.28em] text-[#d9c9a3]/70"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: started ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {foundCount} DE {total}
+          </motion.span>
+        </motion.div>
       )}
     </AnimatePresence>
   );

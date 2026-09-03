@@ -3,25 +3,35 @@
 import { type MotionValue, useMotionValue } from "motion/react";
 import { useEffect, useState } from "react";
 import {
+  GLOW_RADIUS,
+  GLOW_RADIUS_MOBILE,
   LIGHT_RADIUS,
   LIGHT_RADIUS_MOBILE,
   MOBILE_BREAKPOINT,
 } from "../constants";
 
-function useLightRadius() {
-  const [radius, setRadius] = useState(LIGHT_RADIUS);
+function useResponsiveRadius(desktop: number, mobile: number) {
+  const [radius, setRadius] = useState(desktop);
 
   useEffect(() => {
     const query = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
-    const sync = () =>
-      setRadius(query.matches ? LIGHT_RADIUS_MOBILE : LIGHT_RADIUS);
+    const sync = () => setRadius(query.matches ? mobile : desktop);
 
     sync();
     query.addEventListener("change", sync);
     return () => query.removeEventListener("change", sync);
-  }, []);
+  }, [desktop, mobile]);
 
   return radius;
+}
+
+export function useLightRadius() {
+  return useResponsiveRadius(LIGHT_RADIUS, LIGHT_RADIUS_MOBILE);
+}
+
+/* alcance em que a chama acende uma palavra do fundo */
+export function useGlowReach() {
+  return useResponsiveRadius(GLOW_RADIUS, GLOW_RADIUS_MOBILE);
 }
 
 export function useLightFlicker(enabled: boolean): MotionValue<number> {

@@ -24,7 +24,7 @@ export function RitualMessage({
           className="pointer-events-none absolute inset-x-0 bottom-[calc(2rem+env(safe-area-inset-bottom))] z-30 flex cursor-default flex-col items-center px-6 text-center sm:px-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, delay: 5.4, ease: SMOOTH }}
+          transition={{ duration: 1.4, delay: 1.6, ease: SMOOTH }}
         >
           <p className="font-serif text-2xl font-medium leading-snug text-[#e8dcc0] sm:text-3xl">
             {name ? `Sua vela está acesa, ${name}.` : "Sua vela está acesa."}
@@ -40,7 +40,7 @@ export function RitualMessage({
             className="pointer-events-auto relative z-50 mt-6 min-h-11 rounded-lg border border-[#d9c9a3]/40 bg-black/40 px-8 py-2.5 text-[12px] tracking-[0.2em] text-[#e8dcc0] backdrop-blur-sm transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 6.4 }}
+            transition={{ duration: 1.2, delay: 2.4 }}
           >
             FINALIZAR
           </motion.button>
