@@ -21,21 +21,20 @@ interface RevealedWordsProps {
 export function RevealedBackground({ complete }: { complete: boolean }) {
   return (
     <div className="pointer-events-none absolute inset-0 select-none">
-      {/* a foto e paisagem (1672x941): num celular em pe o object-cover
-          cortaria 75% da largura e sobraria so a faixa central. o contain
-          mostra a cena inteira, e a partir de sm o cover volta porque ali a
-          tela ja e larga o bastante pra nao perder quase nada */}
+      {/* a foto preenche a tela inteira: mesmo cortando as laterais num
+          celular em pe, o padre ao centro segurando a imagem sustenta a cena
+          melhor do que a foto inteira encolhida numa faixa */}
       <Image
         src="/images/webp/background-vela.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-contain transition-[filter,transform] duration-[2400ms] ease-out sm:object-cover"
+        className="object-cover transition-[filter,transform] duration-[2400ms] ease-out"
         style={{
           filter: complete
             ? "grayscale(0.15) brightness(0.92) sepia(0.18)"
             : "grayscale(0.6) brightness(0.5) sepia(0.3)",
-          transform: complete ? "scale(1)" : "scale(1.03)",
+          transform: complete ? "scale(1)" : "scale(1.06)",
         }}
       />
       <div
