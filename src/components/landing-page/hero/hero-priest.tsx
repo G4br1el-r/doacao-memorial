@@ -9,7 +9,7 @@ const MotionImage = motion.create(Image);
 export function HeroPriest() {
   return (
     <MotionImage
-      src="/images/webp/padre.webp"
+      src="/images/png/padre.png"
       alt="Padre"
       width={1024}
       height={1536}

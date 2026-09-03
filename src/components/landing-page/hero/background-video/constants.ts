@@ -5,7 +5,6 @@ export const LEGACY_INLINE_AUTOPLAY_ATTRS = {
 } as const;
 
 export const DEFAULT_SOURCES = [
-  { src: "/video/webm/background.webm", type: "video/webm" },
   { src: "/video/mp4/background.mp4", type: "video/mp4" },
 ];
 

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils/cn";
 import { DEFAULT_SOURCES, LEGACY_INLINE_AUTOPLAY_ATTRS } from "./constants";
 import { useBoomerangLoop } from "./use-boomerang-loop";
+import { useDeferredUntilLoaded } from "./use-deferred-until-loaded";
 import { useVideoAutoplay } from "./use-video-autoplay";
 import { VideoPoster } from "./video-poster";
 
@@ -23,7 +24,9 @@ export function BackgroundVideo({
 }: BackgroundVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(videoRef, { once: true, amount: 0.5 });
-  const shouldPlay = !playOnInView || isInView;
+  const pageLoaded = useDeferredUntilLoaded();
+
+  const shouldPlay = (!playOnInView || isInView) && pageLoaded;
 
   const isReady = useVideoAutoplay(videoRef, shouldPlay);
   useBoomerangLoop(videoRef, shouldPlay);
@@ -42,16 +45,17 @@ export function BackgroundVideo({
         muted
         playsInline
         {...LEGACY_INLINE_AUTOPLAY_ATTRS}
-        preload={poster ? "metadata" : "none"}
+        preload="none"
         disablePictureInPicture
         disableRemotePlayback
         controls={false}
         tabIndex={-1}
         aria-hidden="true"
       >
-        {sources.map(({ src, type }) => (
-          <source key={src} src={src} type={type} />
-        ))}
+        {pageLoaded &&
+          sources.map(({ src, type }) => (
+            <source key={src} src={src} type={type} />
+          ))}
       </video>
     </>
   );
