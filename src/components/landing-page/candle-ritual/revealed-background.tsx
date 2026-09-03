@@ -11,7 +11,6 @@ interface RevealedWordsProps {
   smoothX: MotionValue<number>;
   smoothY: MotionValue<number>;
   lit: boolean;
-  complete: boolean;
   onDiscover: (text: string) => void;
 }
 
@@ -59,18 +58,13 @@ export function RevealedWords({
   smoothX,
   smoothY,
   lit,
-  complete,
   onDiscover,
 }: RevealedWordsProps) {
   const reach = useGlowReach();
   const mobile = useIsMobileStage();
 
   return (
-    /* cumprido o ritual as palavras recuam: quem fica em cena e a fotografia */
-    <div
-      className="pointer-events-none absolute inset-0 z-10 select-none transition-opacity duration-[2000ms] ease-out"
-      style={{ opacity: complete ? 0.22 : 1 }}
-    >
+    <div className="pointer-events-none absolute inset-0 z-10 select-none">
       {INSCRIPTIONS.map((inscription) => (
         <RevealedInscription
           key={inscription.text}

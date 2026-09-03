@@ -13,7 +13,6 @@ import { InvitationText } from "./invitation-text";
 import { RevealedBackground, RevealedWords } from "./revealed-background";
 import { RitualMessage } from "./ritual-message";
 import { RitualStage } from "./ritual-stage";
-import { SourceFlame } from "./source-flame";
 import { WarmHalo } from "./warm-halo";
 
 interface RitualOverlayProps {
@@ -56,11 +55,9 @@ export function RitualOverlay({ onClose, name }: RitualOverlayProps) {
         smoothX={smoothX}
         smoothY={smoothY}
         lit={free}
-        complete={complete}
         onDiscover={discover}
       />
 
-      <SourceFlame visible={phase === "convite" || phase === "acendendo"} />
       <InvitationText visible={phase === "convite"} />
 
       {!complete && (

@@ -20,31 +20,40 @@ export function RitualMessage({
   return (
     <AnimatePresence>
       {visible && (
-        <motion.div
-          className="pointer-events-none absolute inset-x-0 bottom-[calc(2rem+env(safe-area-inset-bottom))] z-30 flex cursor-default flex-col items-center px-6 text-center sm:px-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, delay: 1.6, ease: SMOOTH }}
-        >
-          <p className="font-serif text-2xl font-medium leading-snug text-[#e8dcc0] sm:text-3xl">
-            {name ? `Sua vela está acesa, ${name}.` : "Sua vela está acesa."}
-          </p>
-          <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-white/70">
-            Ela permanecerá acesa por {DAYS_LIT} dias, até {endDate}, e será
-            lembrada nas intenções da missão.
-          </p>
-
-          <motion.button
-            type="button"
-            onClick={onClose}
-            className="pointer-events-auto relative z-50 mt-6 min-h-11 rounded-lg border border-[#d9c9a3]/40 bg-black/40 px-8 py-2.5 text-[12px] tracking-[0.2em] text-[#e8dcc0] backdrop-blur-sm transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
+        <>
+          <motion.div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-[60vh] bg-linear-to-t from-black via-black/70 to-transparent"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 2.4 }}
+            transition={{ duration: 1.4, delay: 1.2, ease: SMOOTH }}
+          />
+
+          <motion.div
+            className="pointer-events-none absolute inset-x-0 bottom-[calc(2rem+env(safe-area-inset-bottom))] z-30 flex cursor-default flex-col items-center px-6 text-center sm:px-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 1.6, ease: SMOOTH }}
           >
-            FINALIZAR
-          </motion.button>
-        </motion.div>
+            <p className="font-serif text-2xl font-medium leading-snug text-[#e8dcc0] sm:text-3xl">
+              {name ? `Sua vela está acesa, ${name}.` : "Sua vela está acesa."}
+            </p>
+            <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-white/70">
+              Ela permanecerá acesa por {DAYS_LIT} dias, até {endDate}, e será
+              lembrada nas intenções da missão.
+            </p>
+
+            <motion.button
+              type="button"
+              onClick={onClose}
+              className="pointer-events-auto relative z-50 mt-6 min-h-11 rounded-lg border border-[#d9c9a3]/40 bg-black/40 px-8 py-2.5 text-[12px] tracking-[0.2em] text-[#e8dcc0] backdrop-blur-sm transition-colors hover:border-[#d9c9a3]/80 hover:bg-[#d9c9a3]/10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 2.4 }}
+            >
+              FINALIZAR
+            </motion.button>
+          </motion.div>
+        </>
       )}
     </AnimatePresence>
   );
