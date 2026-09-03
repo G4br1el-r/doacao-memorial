@@ -11,6 +11,7 @@ interface RevealedInscriptionProps {
   smoothY: MotionValue<number>;
   reach: number;
   lit: boolean;
+  mobile: boolean;
   onDiscover: (text: string) => void;
 }
 
@@ -29,16 +30,13 @@ export function RevealedInscription({
   smoothY,
   reach,
   lit,
+  mobile,
   onDiscover,
 }: RevealedInscriptionProps) {
-  const { near, discovered } = useWordGlow(
-    smoothX,
-    smoothY,
-    inscription.x,
-    inscription.y,
-    reach,
-    lit,
-  );
+  const x = mobile ? inscription.mobileX : inscription.x;
+  const y = mobile ? inscription.mobileY : inscription.y;
+
+  const { near, discovered } = useWordGlow(smoothX, smoothY, x, y, reach, lit);
 
   /* antes de a chama chegar a palavra fica invisivel: quem revela e a luz.
      depois de descoberta ela estoura e nao apaga mais */
@@ -53,8 +51,8 @@ export function RevealedInscription({
     <span
       className={`absolute grid max-w-[92vw] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-serif tracking-[0.2em] ${inscription.size}`}
       style={{
-        left: `${inscription.x}%`,
-        top: `${inscription.y}%`,
+        left: `${x}%`,
+        top: `${y}%`,
         opacity: on ? Math.max(glow, 0.35) : 0,
         /* so a opacidade transiciona: o compositor resolve sem repintar.
            nada de contain aqui: ele recortaria o blur na caixa do texto e

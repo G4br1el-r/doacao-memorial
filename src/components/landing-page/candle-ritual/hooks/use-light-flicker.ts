@@ -25,6 +25,21 @@ function useResponsiveRadius(desktop: number, mobile: number) {
   return radius;
 }
 
+/* true enquanto a tela usa o layout mobile do ritual */
+export function useIsMobileStage() {
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const sync = () => setMobile(query.matches);
+    sync();
+    query.addEventListener("change", sync);
+    return () => query.removeEventListener("change", sync);
+  }, []);
+
+  return mobile;
+}
+
 export function useLightRadius() {
   return useResponsiveRadius(LIGHT_RADIUS, LIGHT_RADIUS_MOBILE);
 }
