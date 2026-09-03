@@ -25,7 +25,6 @@ function useResponsiveRadius(desktop: number, mobile: number) {
   return radius;
 }
 
-/* true enquanto a tela usa o layout mobile do ritual */
 export function useIsMobileStage() {
   const [mobile, setMobile] = useState(false);
 
@@ -44,7 +43,6 @@ export function useLightRadius() {
   return useResponsiveRadius(LIGHT_RADIUS, LIGHT_RADIUS_MOBILE);
 }
 
-/* alcance em que a chama acende uma palavra do fundo */
 export function useGlowReach() {
   return useResponsiveRadius(GLOW_RADIUS, GLOW_RADIUS_MOBILE);
 }

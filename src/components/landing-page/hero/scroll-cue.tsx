@@ -14,9 +14,9 @@ export function ScrollCue() {
       transition={{ duration: 1.2, delay: 2.6, ease: SMOOTH }}
       aria-hidden="true"
     >
-      <span className="flex h-9 w-[22px] items-start justify-center rounded-full border border-[#d9c9a3]/50 pt-1.5">
+      <span className="flex h-9 w-5.5 items-start justify-center rounded-full border border-[#d9c9a3]/50 pt-1.5">
         <motion.span
-          className="h-1.5 w-[3px] rounded-full bg-[#d9c9a3]"
+          className="h-1.5 w-0.75 rounded-full bg-[#d9c9a3]"
           animate={{ y: [0, 9, 0], opacity: [0, 1, 0] }}
           transition={{
             duration: 1.8,

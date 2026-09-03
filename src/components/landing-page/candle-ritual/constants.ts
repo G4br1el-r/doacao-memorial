@@ -16,13 +16,9 @@ export const TILT_DEGREES = [-11, 11];
 
 export const WICK_OFFSET = 70;
 
-/* distancia, em px, entre a chama e a palavra pra ela ser descoberta */
 export const GLOW_RADIUS = 190;
 export const GLOW_RADIUS_MOBILE = 120;
 
-/* no mobile as palavras descem em zigue-zague, uma faixa por vez, ate 66% da
-   altura - o rodape fica pro texto final. os tamanhos tambem caem, senao as
-   maiores nao cabem numa tela de 360px */
 export const INSCRIPTIONS: Inscription[] = [
   {
     text: "FÉ",

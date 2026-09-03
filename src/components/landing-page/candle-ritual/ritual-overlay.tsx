@@ -33,8 +33,6 @@ export function RitualOverlay({ onClose, name }: RitualOverlayProps) {
   const flicker = useLightFlicker(free);
   const { mask, halo } = useCandleLight(smoothX, smoothY, flicker);
 
-  /* achadas todas as palavras o ritual se cumpre: a vela some, a escuridao
-     se dissolve e a fotografia toma a cena */
   usePointerFollow(free && pinnedToPointer && !byTouch && !complete, x, y);
 
   function onStageClick(event: React.MouseEvent<HTMLDivElement>) {

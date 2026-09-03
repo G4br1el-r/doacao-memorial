@@ -3,8 +3,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { INSCRIPTIONS } from "../constants";
 
-/* guarda quais palavras a chama ja descobriu. quando todas acendem, o ritual
-   chega ao fim: a escuridao se dissolve e a fotografia por tras aparece */
 export function useDiscovery() {
   const [found, setFound] = useState<ReadonlySet<string>>(new Set());
 

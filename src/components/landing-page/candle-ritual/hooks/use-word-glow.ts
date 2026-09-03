@@ -4,12 +4,6 @@ import { type MotionValue, useMotionValueEvent } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { WICK_OFFSET } from "../constants";
 
-/* a chama descobre a palavra: enquanto passa por cima ela acende, e depois
-   fica consagrada - nao apaga mais.
-
-   a intensidade e arredondada em degraus e so vira estado quando muda de
-   degrau. sem isso, cada pixel de movimento do mouse re-renderizaria as seis
-   palavras, que e o que fazia o ritual travar */
 const STEPS = 6;
 
 export function useWordGlow(
@@ -27,7 +21,6 @@ export function useWordGlow(
 
   const measure = useCallback(() => {
     pending.current = false;
-    /* uma vez consagrada a palavra nao muda mais: nao ha o que medir */
     if (!enabled || discovered) return;
 
     const flameX = window.innerWidth / 2 + smoothX.get();
@@ -44,7 +37,6 @@ export function useWordGlow(
   }, [smoothX, smoothY, xPercent, yPercent, reach, enabled, discovered]);
 
   const schedule = useCallback(() => {
-    /* uma medicao por quadro, no maximo */
     if (pending.current) return;
     pending.current = true;
     raf.current = requestAnimationFrame(measure);
@@ -66,6 +58,5 @@ export function useWordGlow(
     };
   }, [enabled, measure]);
 
-  /* depois de descoberta a palavra nao muda mais: para de medir */
   return { near: discovered ? 1 : near, discovered };
 }

@@ -15,9 +15,6 @@ interface RevealedInscriptionProps {
   onDiscover: (text: string) => void;
 }
 
-/* tres camadas curtas em vez de seis longas. o raio maximo caiu de 240px pra
-   42px: o navegador repinta uma area muito menor, e o halo largo fica por
-   conta de uma copia borrada, que a gpu compoe sem repintar */
 const CORE_SHADOW = [
   "0 0 5px rgba(255,255,255,0.95)",
   "0 0 14px rgba(255,240,200,0.9)",
@@ -38,8 +35,6 @@ export function RevealedInscription({
 
   const { near, discovered } = useWordGlow(smoothX, smoothY, x, y, reach, lit);
 
-  /* antes de a chama chegar a palavra fica invisivel: quem revela e a luz.
-     depois de descoberta ela estoura e nao apaga mais */
   const glow = discovered ? 1 : near;
   const on = glow > 0.04;
 
@@ -54,15 +49,10 @@ export function RevealedInscription({
         left: `${x}%`,
         top: `${y}%`,
         opacity: on ? Math.max(glow, 0.35) : 0,
-        /* so a opacidade transiciona: o compositor resolve sem repintar.
-           nada de contain aqui: ele recortaria o blur na caixa do texto e
-           deixaria uma moldura retangular visivel em volta da palavra */
         transition: "opacity 420ms ease-out",
         willChange: on ? "opacity" : undefined,
       }}
     >
-      {/* halo largo: copia borrada do texto, sem translateZ - a camada de
-          composicao propria recortaria o blur e deixaria uma moldura */}
       <span
         aria-hidden="true"
         className="pointer-events-none col-start-1 row-start-1 select-none text-[#ffa844]"
@@ -71,7 +61,6 @@ export function RevealedInscription({
         {inscription.text}
       </span>
 
-      {/* nucleo nitido, com sombras de raio curto */}
       <span
         className="col-start-1 row-start-1 text-[#fffdf6]"
         style={{ textShadow: CORE_SHADOW }}

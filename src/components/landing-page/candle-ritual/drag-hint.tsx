@@ -37,8 +37,6 @@ export function DragHint({ visible, byTouch, foundCount }: DragHintProps) {
               : "MOVA O MOUSE PARA ILUMINAR"}
           </motion.p>
 
-          {/* contador de palavras: so aparece depois da primeira descoberta,
-              pra nao entregar o jogo antes de a pessoa entender o ritual */}
           <motion.span
             className="text-[11px] tracking-[0.28em] text-[#d9c9a3]/70"
             initial={{ opacity: 0 }}

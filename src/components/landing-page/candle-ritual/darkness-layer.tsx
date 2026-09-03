@@ -14,8 +14,6 @@ export function DarknessLayer({ free, mask, complete }: DarknessLayerProps) {
     <motion.div
       className="absolute inset-0 bg-black"
       style={{
-        /* com o ritual cumprido a mascara sai de cena: sem recorte, a camada
-           inteira desaparece junto e a fotografia fica exposta */
         maskImage: free && !complete ? mask : undefined,
         WebkitMaskImage: free && !complete ? mask : undefined,
       }}

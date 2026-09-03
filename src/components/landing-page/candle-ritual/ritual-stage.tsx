@@ -18,7 +18,7 @@ export function RitualStage({
   return (
     <motion.div
       className={cn(
-        "fixed inset-0 z-[100] overflow-hidden bg-black",
+        "fixed inset-0 z-100 overflow-hidden bg-black",
         pinnedToPointer && "cursor-none",
       )}
       initial={{ opacity: 0 }}
