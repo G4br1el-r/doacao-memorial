@@ -11,7 +11,7 @@ export function Hero() {
       <HeroBackground />
       <HeroPriest />
       <HeroGradient />
-      <Signature className="absolute bottom-[16dvh] left-1/2 z-30 w-[clamp(14rem,72vw,18.75rem)] -translate-x-1/2 xl:bottom-0 xl:left-[38%] xl:w-[400px]" />
+      <Signature className="absolute bottom-[16dvh] left-1/2 z-30 w-[clamp(14rem,72vw,18.75rem)] -translate-x-1/2 xl:bottom-[-2dvh] xl:w-[400px]" />
       <HeroCopy />
       <ScrollCue />
     </section>

@@ -5,8 +5,7 @@ export const TITLE_LINES = [
   { text: "maior", delay: 0.85 },
 ];
 
-export const TAGLINE =
-  "Sua doação mantém viva esta missão de fé, evangelização e caridade.";
+export const TAGLINE = "Quem ajuda a pregação tem merecimentos de pregador.";
 
 export const LETTER_STAGGER = 0.05;
 
