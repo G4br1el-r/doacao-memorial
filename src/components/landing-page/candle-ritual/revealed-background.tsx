@@ -28,7 +28,7 @@ export function RevealedBackground({ complete }: { complete: boolean }) {
         alt=""
         fill
         sizes="100vw"
-        className="object-fill transition-[filter,transform] duration-5000ms ease-out"
+        className="object-cover object-top transition-[filter,transform] duration-5000ms ease-out"
         style={{
           filter: imageFilter,
           transform: imageScale,
