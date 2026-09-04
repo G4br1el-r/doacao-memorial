@@ -12,6 +12,7 @@ interface DraggableCandleProps {
   lit: boolean;
   byTouch: boolean;
   pinnedToPointer: boolean;
+  complete: boolean;
   x: MotionValue<number>;
   y: MotionValue<number>;
   rotation: MotionValue<number>;
@@ -23,6 +24,7 @@ export function DraggableCandle({
   lit,
   byTouch,
   pinnedToPointer,
+  complete,
   x,
   y,
   rotation,
@@ -32,7 +34,10 @@ export function DraggableCandle({
 
   return (
     <motion.div
-      className="absolute left-1/2 z-40 h-56 w-32 touch-none sm:h-64 sm:w-36"
+      className={cn(
+        "absolute left-1/2 z-40 h-56 w-32 touch-none sm:h-64 sm:w-36",
+        complete && "pointer-events-none",
+      )}
       style={{
         x,
         y,
@@ -42,14 +47,14 @@ export function DraggableCandle({
       }}
       animate={{
         top: phase === "convite" ? "70%" : "52%",
-        scale: lit ? 1.05 : 1,
-        opacity: phase === "escurecendo" ? 0 : 1,
+        scale: complete ? 0.85 : lit ? 1.05 : 1,
+        opacity: phase === "escurecendo" || complete ? 0 : 1,
       }}
       initial={{ top: "70%", opacity: 0 }}
       transition={{
-        duration: 1.9,
+        duration: complete ? 1.6 : 1.9,
         ease: SMOOTH,
-        opacity: { duration: 0.9, ease: SMOOTH },
+        opacity: { duration: complete ? 1.6 : 0.9, ease: SMOOTH },
       }}
       drag={free && byTouch}
       dragMomentum={false}

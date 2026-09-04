@@ -53,29 +53,25 @@ export function RitualOverlay({ onClose, name }: RitualOverlayProps) {
         smoothX={smoothX}
         smoothY={smoothY}
         lit={free}
+        complete={complete}
         onDiscover={discover}
       />
 
       <InvitationText visible={phase === "convite"} />
 
-      {!complete && (
-        <DraggableCandle
-          phase={phase}
-          lit={lit}
-          byTouch={byTouch}
-          pinnedToPointer={pinnedToPointer}
-          x={smoothX}
-          y={smoothY}
-          rotation={rotation}
-          onLight={light}
-        />
-      )}
-
-      <DragHint
-        visible={free && !complete}
+      <DraggableCandle
+        phase={phase}
+        lit={lit}
         byTouch={byTouch}
-        foundCount={foundCount}
+        pinnedToPointer={pinnedToPointer}
+        complete={complete}
+        x={smoothX}
+        y={smoothY}
+        rotation={rotation}
+        onLight={light}
       />
+
+      <DragHint visible={free && !complete} foundCount={foundCount} />
 
       <RitualMessage
         visible={complete}

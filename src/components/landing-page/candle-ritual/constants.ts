@@ -74,4 +74,22 @@ export const INSCRIPTIONS: Inscription[] = [
     depth: 0.65,
     size: "text-xl sm:text-4xl",
   },
+  {
+    text: "GRAÇA",
+    x: 50,
+    y: 50,
+    mobileX: 50,
+    mobileY: 52,
+    depth: 1,
+    size: "text-2xl sm:text-5xl",
+  },
+  {
+    text: "COMUNHÃO",
+    x: 50,
+    y: 78,
+    mobileX: 45,
+    mobileY: 76,
+    depth: 0.7,
+    size: "text-lg sm:text-3xl",
+  },
 ];

@@ -11,27 +11,31 @@ interface RevealedWordsProps {
   smoothX: MotionValue<number>;
   smoothY: MotionValue<number>;
   lit: boolean;
+  complete: boolean;
   onDiscover: (text: string) => void;
 }
 
 export function RevealedBackground({ complete }: { complete: boolean }) {
+  const imageFilter = complete
+    ? "grayscale(0.15) brightness(0.92) sepia(0.18)"
+    : "grayscale(0.6) brightness(0.5) sepia(0.3)";
+  const imageScale = complete ? "scale(1)" : "scale(1.015)";
+
   return (
-    <div className="pointer-events-none absolute inset-0 select-none">
+    <div className="pointer-events-none absolute inset-0 select-none bg-black">
       <Image
         src="/images/webp/background-vela.webp"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover transition-[filter,transform] duration-2400ms ease-out"
+        className="object-fill transition-[filter,transform] duration-5000ms ease-out"
         style={{
-          filter: complete
-            ? "grayscale(0.15) brightness(0.92) sepia(0.18)"
-            : "grayscale(0.6) brightness(0.5) sepia(0.3)",
-          transform: complete ? "scale(1)" : "scale(1.06)",
+          filter: imageFilter,
+          transform: imageScale,
         }}
       />
       <div
-        className="absolute inset-0 bg-black transition-opacity duration-2400ms ease-out"
+        className="absolute inset-0 bg-black transition-opacity duration-5000ms ease-out"
         style={{ opacity: complete ? 0.32 : 0.62 }}
       />
       <div
@@ -48,6 +52,7 @@ export function RevealedWords({
   smoothX,
   smoothY,
   lit,
+  complete,
   onDiscover,
 }: RevealedWordsProps) {
   const reach = useGlowReach();
@@ -64,6 +69,7 @@ export function RevealedWords({
           smoothY={smoothY}
           reach={reach}
           lit={lit}
+          complete={complete}
           onDiscover={onDiscover}
         />
       ))}

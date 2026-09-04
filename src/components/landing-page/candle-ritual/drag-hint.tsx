@@ -5,11 +5,10 @@ import { INSCRIPTIONS } from "./constants";
 
 interface DragHintProps {
   visible: boolean;
-  byTouch: boolean;
   foundCount: number;
 }
 
-export function DragHint({ visible, byTouch, foundCount }: DragHintProps) {
+export function DragHint({ visible, foundCount }: DragHintProps) {
   const total = INSCRIPTIONS.length;
   const started = foundCount > 0;
 
@@ -32,9 +31,7 @@ export function DragHint({ visible, byTouch, foundCount }: DragHintProps) {
               ease: "easeInOut",
             }}
           >
-            {byTouch
-              ? "ARRASTE A VELA PARA ILUMINAR"
-              : "MOVA O MOUSE PARA ILUMINAR"}
+            LEVE A LUZ E REVELE AS PALAVRAS
           </motion.p>
 
           <motion.span

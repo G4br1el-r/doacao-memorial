@@ -12,6 +12,7 @@ interface RevealedInscriptionProps {
   reach: number;
   lit: boolean;
   mobile: boolean;
+  complete: boolean;
   onDiscover: (text: string) => void;
 }
 
@@ -28,6 +29,7 @@ export function RevealedInscription({
   reach,
   lit,
   mobile,
+  complete,
   onDiscover,
 }: RevealedInscriptionProps) {
   const x = mobile ? inscription.mobileX : inscription.x;
@@ -36,7 +38,7 @@ export function RevealedInscription({
   const { near, discovered } = useWordGlow(smoothX, smoothY, x, y, reach, lit);
 
   const glow = discovered ? 1 : near;
-  const on = glow > 0.04;
+  const on = glow > 0.04 && !complete;
 
   useEffect(() => {
     if (discovered) onDiscover(inscription.text);
@@ -49,7 +51,9 @@ export function RevealedInscription({
         left: `${x}%`,
         top: `${y}%`,
         opacity: on ? Math.max(glow, 0.35) : 0,
-        transition: "opacity 420ms ease-out",
+        transition: complete
+          ? "opacity 1400ms ease-out"
+          : "opacity 420ms ease-out",
         willChange: on ? "opacity" : undefined,
       }}
     >
